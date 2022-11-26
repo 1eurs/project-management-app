@@ -3,11 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Vite App</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- <div class="container0">
+      <form action="post" class="new-task-form">
+        <label for="task">Task<input type="text" id="task" /></label>
+        <label for="assign">Assign<input type="text" id="assign" /></label>
+        <label for="priority">Priority<input type="text" id="assign" /></label>
+        <label for="due-date">Due Date<input type="date" id="due-date" /></label>
+        <button class="submit-button" type="submit">Add</button>
+      </form>
+    </div> -->
+
     <main>
       <div class="container1">
         <ul class="sort-by">
@@ -24,6 +34,7 @@
 
       <div class="container2 row-lines">
         <div class="todo tasks">
+          <span class="badge" style="--dadge-bg: crimson">Next up</span>
           <div class="task">
             <h3 class="task-title">Systemprogrammierung Laboraufgaben</h3>
             <p class="task-assign">Mahmood Al-Zeid</p>
@@ -36,6 +47,8 @@
           </div>
         </div>
         <div class="in-progress col-lines tasks">
+          <span class="badge" style="--dadge-bg: GoldenRod">In Progress</span>
+
           <div class="task">
             <h3 class="task-title">Systemprogrammierung Laboraufgaben</h3>
             <p class="task-assign">Mahmood Al-Zeid</p>
@@ -48,6 +61,8 @@
           </div>
         </div>
         <div class="done col-lines tasks">
+          <span class="badge" style="--dadge-bg: MediumSeaGreen">Completed</span>
+
           <div class="task">
             <h3 class="task-title">Systemprogrammierung Laboraufgaben</h3>
             <p class="task-assign">Mahmood Al-Zeid</p>

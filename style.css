@@ -80,21 +80,72 @@ body {
   background-color: var(--darkest);
   height: 100vh;
   color: var(--light);
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  user-select: none; /* Standard syntax */
 }
 
 main {
-  width: 65rem;
+  max-width: 65rem;
+  width: 100%;
   margin: auto;
   padding: 1rem 2rem;
+}
+.container0 {
+  position: absolute;
+  z-index: 1;
+  height: 100%;
+  width: 58%;
+  right: 0;
+  background: var(--darker);
+}
+@media (max-width: 50em) {
+  .container0 {
+    width: 100%;
+  }
+}
+.new-task-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  align-items: center;
+  padding: 5rem;
+  gap: var(--gap-600);
+}
+.new-task-form input {
+  background-color: var(--darkest);
+  color: var(--light);
+  width: 100%;
+  padding: 0.5rem 1rem;
+  margin: 8px 0;
+  border-radius: 0.5rem;
+
+  /*  */
+  border: none;
+}
+.submit-button {
+  border: none;
+  background-color: var(--blue);
+  color: var(--light);
+  padding: 1rem 2rem;
+  width: max-content;
+  cursor: pointer;
 }
 
 .container1 {
   display: flex;
+  gap: var(--gap-200);
   justify-content: space-between;
-  margin-bottom: var(--gap-100);
+  align-items: center;
   margin-top: var(--gap-600);
+  margin-bottom: var(--gap-200);
+}
+.container2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.badge {
+  background-color: var(--dadge-bg);
+  text-align: center;
+  padding: 0.2rem;
 }
 .add-task {
   border: none;
@@ -102,6 +153,7 @@ main {
   border-radius: 5px;
   background-color: var(--blue);
   color: var(--light);
+  cursor: pointer;
 }
 .sort-by {
   display: flex;
@@ -111,15 +163,13 @@ main {
   margin-left: var(--gap-200);
 }
 .sort-by > li {
-  padding: 0.4rem;
+  padding: 0.3rem 0.5rem;
+  background-color: var(--darker);
+  text-align: center;
 }
 .sort-by > li:hover {
   cursor: pointer;
   background-color: var(--dark);
-}
-.container2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
 }
 
 .tasks {
@@ -134,7 +184,10 @@ main {
   background-color: var(--darker);
   padding: 2rem;
 }
-
+.task:hover {
+  background-color: var(--dark);
+  cursor: pointer;
+}
 .task-title {
   font-size: 1.2rem;
 }
@@ -148,4 +201,15 @@ main {
   position: absolute;
   bottom: 0.25rem;
   right: 0.5rem;
+}
+
+@media (max-width: 50em) {
+  .container2 {
+    grid-template-columns: 1fr;
+    grid-gap: 1rem;
+  }
+
+  .sort-by {
+    gap: var(--gap-100);
+  }
 }
