@@ -6,18 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Vite App</title>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+    <script>
+      const firebaseConfig = {
+        apiKey: "AIzaSyCWOntbg1bWmy-XtndkyP57i-XsD-krYKo",
+        authDomain: "project-manage-92f8a.firebaseapp.com",
+        projectId: "project-manage-92f8a",
+        storageBucket: "project-manage-92f8a.appspot.com",
+        messagingSenderId: "650762065205",
+        appId: "1:650762065205:web:e5fdcc4e1f1913b772287c",
+      };
+
+      firebase.initializeApp(firebaseConfig);
+      const auth = firebase.auth();
+      const db = firebase.firestore();
+    </script>
   </head>
   <body>
-    <!-- <div class="container0">
-      <form action="post" class="new-task-form">
-        <label for="task">Task<input type="text" id="task" /></label>
-        <label for="assign">Assign<input type="text" id="assign" /></label>
-        <label for="priority">Priority<input type="text" id="assign" /></label>
-        <label for="due-date">Due Date<input type="date" id="due-date" /></label>
+    <div class="container0 hidden">
+      <form id="newTaskForm" class="new-task-form">
+        <label for="task">Task<input type="text" name="task" /></label>
+        <label for="assign">Assign<input type="text" name="assign" /></label>
+        <label for="priority">Priority<input type="text" name="priority" /></label>
+        <label for="due-date">Due Date<input type="date" name="due-date" /></label>
         <button class="submit-button" type="submit">Add</button>
       </form>
-    </div> -->
-
+    </div>
+    <!-- <form id="signupfrom">
+      name <input name="username" type="text" /> password<input name="password" type="password" /> email<input name="email" type="email" />
+      <button type="submit">submit</button>
+    </form>
+    <span id="err"></span> -->
     <main>
       <div class="container1">
         <ul class="sort-by">
@@ -27,17 +48,15 @@
           <li>By Assigne</li>
           <li>Due Date</li>
         </ul>
-        <form action="post">
-          <button class="add-task" type="submit">Add</button>
-        </form>
+        <button id="add-task" class="add-task" type="submit">Add</button>
       </div>
       <div class="container2 row-lines">
         <div id="firstSection" class="todo tasks">
           <span class="badge" style="--dadge-bg: crimson">Next up</span>
           <!-- <div class="task">
-            <h3 id="taskTitle" class="task-title">Systemprogrammierung Laboraufgaben</h3>
-            <p id="taskAssign" class="task-assign">Mahmood Al-Zeid</p>
-            <p id="taskDate" class="task-date">Feb 2, 2023</p>
+            <h3  class="task-title">Systemprogrammierung Laboraufgaben</h3>
+            <p  class="task-assign">Mahmood Al-Zeid</p>
+            <p  class="task-date">Feb 2, 2023</p>
           </div> -->
         </div>
         <div id="secSection" class="in-progress col-lines tasks">
@@ -48,6 +67,7 @@
         </div>
       </div>
     </main>
+
     <script type="module" src="/main.js"></script>
   </body>
 </html>

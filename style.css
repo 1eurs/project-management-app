@@ -213,3 +213,12 @@ main {
     gap: var(--gap-100);
   }
 }
+
+#err {
+  color: var(--light);
+  size: 2rem;
+}
+
+.hidden {
+  display: none;
+}
