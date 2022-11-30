@@ -63,7 +63,6 @@ newTaskForm.addEventListener("submit", (e) => {
       date: date,
     })
     .then((docRef) => {
-      console.log("Document successfully written!");
       newTaskContainer.classList.add("hidden");
       var newTaskRef = taskesRef.doc(docRef.id);
       newTaskRef.get().then((doc) => {
@@ -79,6 +78,11 @@ function creteTaskElm(task, assign, date) {
   const taskDate = document.createElement("p");
   taskElm.append(taskTitle, taskAssign, taskDate);
   taskElm.classList.add("task");
+  taskElm.setAttribute("id", task);
+  // drag and drom
+  taskElm.addEventListener("dragstart", dragStart);
+  taskElm.setAttribute("draggable", "true");
+  // add task
   taskTitle.classList.add("task-title");
   taskAssign.classList.add("task-assign");
   taskDate.classList.add("task-date");
@@ -97,3 +101,55 @@ function fetchDate() {
 }
 
 fetchDate();
+
+function dragStart(e) {
+  e.dataTransfer.setData("text/plain", e.target.id);
+}
+
+firstSection.addEventListener("dragover", dragOver1);
+firstSection.addEventListener("drop", drop1);
+function dragOver1(e) {
+  e.preventDefault();
+}
+function drop1(e) {
+  // get the draggable element
+  const id = e.dataTransfer.getData("text/plain");
+  const draggable = document.getElementById(id);
+  const dropzone = e.target;
+  // add it to the drop target
+  dropzone.appendChild(draggable);
+  console.log(draggable);
+  e.dataTransfer.clearData();
+}
+
+secSection.addEventListener("dragover", dragOver2);
+secSection.addEventListener("drop", drop2);
+function dragOver2(e) {
+  e.preventDefault();
+}
+function drop2(e) {
+  // get the draggable element
+  const id = e.dataTransfer.getData("text/plain");
+  const draggable = document.getElementById(id);
+  const dropzone = e.target;
+  // add it to the drop target
+  dropzone.appendChild(draggable);
+  console.log(draggable);
+  e.dataTransfer.clearData();
+}
+
+thirdSection.addEventListener("dragover", dragOver3);
+thirdSection.addEventListener("drop", drop3);
+function dragOver3(e) {
+  e.preventDefault();
+}
+function drop3(e) {
+  // get the draggable element
+  const id = e.dataTransfer.getData("text/plain");
+  const draggable = document.getElementById(id);
+  const dropzone = e.target;
+  // add it to the drop target
+  dropzone.appendChild(draggable);
+  console.log(draggable);
+  e.dataTransfer.clearData();
+}

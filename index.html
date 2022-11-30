@@ -29,7 +29,14 @@
       <form id="newTaskForm" class="new-task-form">
         <label for="task">Task<input type="text" name="task" /></label>
         <label for="assign">Assign<input type="text" name="assign" /></label>
-        <label for="priority">Priority<input type="text" name="priority" /></label>
+        <label for="priority"
+          >Priority<select name="priority">
+            <option value="">Please choose an option</option>
+            <option value="high">high🎃</option>
+            <option value="medium">medium🧵</option>
+            <option value="low">low 💄</option>
+          </select></label
+        >
         <label for="due-date">Due Date<input type="date" name="due-date" /></label>
         <button class="submit-button" type="submit">Add</button>
       </form>
@@ -59,10 +66,10 @@
             <p  class="task-date">Feb 2, 2023</p>
           </div> -->
         </div>
-        <div id="secSection" class="in-progress col-lines tasks">
+        <div id="secSection" class="in-progress tasks">
           <span class="badge" style="--dadge-bg: GoldenRod">In Progress</span>
         </div>
-        <div id="thirdSection" class="done col-lines tasks">
+        <div id="thirdSection" class="done tasks">
           <span class="badge" style="--dadge-bg: MediumSeaGreen">Completed</span>
         </div>
       </div>

@@ -110,7 +110,8 @@ main {
   padding: 5rem;
   gap: var(--gap-600);
 }
-.new-task-form input {
+.new-task-form input,
+.new-task-form select {
   background-color: var(--darkest);
   color: var(--light);
   width: 100%;
@@ -221,4 +222,10 @@ main {
 
 .hidden {
   display: none;
+}
+.drag-over {
+  border: dashed 3px red;
+}
+.bright {
+  background-color: var(--dark);
 }
