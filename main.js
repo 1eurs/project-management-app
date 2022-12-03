@@ -7,40 +7,6 @@ const addTaskButton = document.querySelector("#add-task");
 const newTaskContainer = document.querySelector(".container0");
 const newTaskForm = document.querySelector("#newTaskForm");
 var taskesRef = db.collection("tasks");
-// sign up
-// signupfrom.addEventListener("submit", (e) => {
-//   e.preventDefault();
-//   const name = signupfrom["username"].value;
-//   const password = signupfrom["password"].value;
-//   const email = signupfrom["email"].value;
-
-//   console.log(name, password, email);
-//   signupfrom.reset();
-//   auth
-//     .createUserWithEmailAndPassword(email, password)
-//     .then((cred) => {
-//       return db
-//         .collection("users")
-//         .doc(cred.user.uid)
-//         .set({
-//           Name: name,
-//           Email: email,
-//           Password: password,
-//         })
-//         .then(() => {
-//           console.log("success");
-//           signupfrom.replaceChildren();
-//         })
-//         .catch((err) => {
-//           const error = document.querySelector("#err");
-//           error.innerText = err.message;
-//         });
-//     })
-//     .catch((err) => {
-//       const error = document.querySelector("#err");
-//       error.innerText = err.message;
-//     });
-// });
 
 addTaskButton.addEventListener("click", (e) => {
   e.preventDefault();
@@ -79,9 +45,7 @@ function creteTaskElm(task, assign, date) {
   taskElm.append(taskTitle, taskAssign, taskDate);
   taskElm.classList.add("task");
   taskElm.setAttribute("id", task);
-  // drag and drom
-  taskElm.addEventListener("dragstart", dragStart);
-  taskElm.setAttribute("draggable", "true");
+
   // add task
   taskTitle.classList.add("task-title");
   taskAssign.classList.add("task-assign");
@@ -101,55 +65,3 @@ function fetchDate() {
 }
 
 fetchDate();
-
-function dragStart(e) {
-  e.dataTransfer.setData("text/plain", e.target.id);
-}
-
-firstSection.addEventListener("dragover", dragOver1);
-firstSection.addEventListener("drop", drop1);
-function dragOver1(e) {
-  e.preventDefault();
-}
-function drop1(e) {
-  // get the draggable element
-  const id = e.dataTransfer.getData("text/plain");
-  const draggable = document.getElementById(id);
-  const dropzone = e.target;
-  // add it to the drop target
-  dropzone.appendChild(draggable);
-  console.log(draggable);
-  e.dataTransfer.clearData();
-}
-
-secSection.addEventListener("dragover", dragOver2);
-secSection.addEventListener("drop", drop2);
-function dragOver2(e) {
-  e.preventDefault();
-}
-function drop2(e) {
-  // get the draggable element
-  const id = e.dataTransfer.getData("text/plain");
-  const draggable = document.getElementById(id);
-  const dropzone = e.target;
-  // add it to the drop target
-  dropzone.appendChild(draggable);
-  console.log(draggable);
-  e.dataTransfer.clearData();
-}
-
-thirdSection.addEventListener("dragover", dragOver3);
-thirdSection.addEventListener("drop", drop3);
-function dragOver3(e) {
-  e.preventDefault();
-}
-function drop3(e) {
-  // get the draggable element
-  const id = e.dataTransfer.getData("text/plain");
-  const draggable = document.getElementById(id);
-  const dropzone = e.target;
-  // add it to the drop target
-  dropzone.appendChild(draggable);
-  console.log(draggable);
-  e.dataTransfer.clearData();
-}
